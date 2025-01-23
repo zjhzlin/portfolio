@@ -1,29 +1,21 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Menu from "./component/Menu";
-import Header from "./component/Header/Header";
-import List from "./component/List/List";
-import Footer from "./component/Footer/Footer";
+import Home from "./component/Home/Home";
+import Todolist from "./component/Todolist/Todolist";
+import DragDropList from "./component/DragDropList/DragDropList";
+import React from "react";
 
 function App() {
-  // const projects = [
-  //   { name: "Project 1", description: "This is the first project." },
-  //   { name: "Project 2", description: "This is the second project." },
-  //   { name: "Portfolio", description: "Your portfolio site." },
-  // ];
-
   return (
-    <>
-      <h1>To do list</h1>
-
-      <div>
-        <Header />
-        <List />
-        <Footer />
-      </div>
-      {/* <div className="min-h-screen flex items-center justify-center bg-gray-100">
-        <Menu projects={projects} />
-      </div> */}
-    </>
+    <React.StrictMode>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/todolist" element={<Todolist />}></Route>
+          <Route path="/dragdroplist" element={<DragDropList />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </React.StrictMode>
   );
 }
 
